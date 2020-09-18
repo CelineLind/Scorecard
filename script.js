@@ -109,8 +109,6 @@ function otherOptionsRemove(groupNum, optionChosen){
     
 }
 
-
-
 // on button click, call this function
 // give this function the button group number and value e.g. group0 agree
 function optionClicked(groupNum, optionChosen){
