@@ -6,19 +6,24 @@ var numOfQuestions = 5;
 
 var prompts = [
     {
-        question: "one"
+        question: "one",
+        completion: false
     },
     {
-        question: "two"
+        question: "two",
+        completion: false
     },
     {
-        question: "three"
+        question: "three",
+        completion: false
     },
     {
-        question: "four"
+        question: "four",
+        completion: false
     },
     {
-        question: "five"
+        question: "five",
+        completion: false
     }
 ]
 
@@ -115,9 +120,24 @@ function optionClicked(groupNum, optionChosen){
 
     console.log(groupNum+" "+optionChosen+" clicked");
 
+    var x = 1;
+    if(optionChosen == 'disagree'){
+        x = 1;
+    }
+    else{
+        x = 0;
+    }
+
     // remove any other selected buttons 'selection'
     // find if any for that group have :active in classname and remove active 
     // and any other selected buttons scores
+    for(var i = 0; i < numOfQuestions; i++){
+        var statusCheck = document.getElementsByClassName(groupNum+' value-btn btn '+options[i].title);
+        console.log(statusCheck[x].id);
+        if(statusCheck[x].id === 'active'){
+            statusCheck[x].id = 'inactive';
+        }
+    }
     
 
     // make that button 'selected'
