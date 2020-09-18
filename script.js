@@ -71,6 +71,7 @@ function createOptions(){
             button.appendChild(button_text); // add between text to button
 
             button.className = 'group' + i + ' value-btn btn ' + options[j].title; // class=""
+            button.id = 'inactive';
 
             // onclick function
             button.onclick = (function(a, b) {
@@ -121,8 +122,7 @@ function optionClicked(groupNum, optionChosen){
 
     // make that button 'selected'
     // add active to id
-    var x = document.getElementsByClassName(groupNum+' value-btn btn '+optionChosen);
-    x.id = "active";
+    document.getElementsByClassName(groupNum+' value-btn btn '+optionChosen)[0].id = 'active';
 
     // add to score
     var points = getOptionValue(optionChosen);
