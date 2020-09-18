@@ -122,7 +122,13 @@ function optionClicked(groupNum, optionChosen){
 
     // make that button 'selected'
     // add active to id
-    document.getElementsByClassName(groupNum+' value-btn btn '+optionChosen)[0].id = 'active';
+    if(optionChosen == 'disagree'){
+        x = 1;
+    }
+    else{
+        x = 0;
+    }
+    document.getElementsByClassName(groupNum+' value-btn btn '+optionChosen)[x].id = 'active';
 
     // add to score
     var points = getOptionValue(optionChosen);
