@@ -95,7 +95,6 @@ createOptions();
 // return the option value for selected option
 function getOptionValue(optionChosen){
     for(i = 0; i < options.length; i++){
-        console.log(options[i].title); ////////
         if(optionChosen == options[i].title){
             return options[i].value;
         }
@@ -112,12 +111,21 @@ function otherOptionsRemove(groupNum, optionChosen){
 // on button click, call this function
 // give this function the button group number and value e.g. group0 agree
 function optionClicked(groupNum, optionChosen){
-    // remove any other selected buttons 'selection'
+
     console.log(groupNum+" "+optionChosen+" clicked");
+
+    // remove any other selected buttons 'selection'
+    // find if any for that group have :active in classname and remove
+
     // remove any other selected buttons scores
 
     // make that button 'selected'
+    // add :active or something to classname
 
     // add to score
-
+    var points = getOptionValue(optionChosen);
+    var totalScore = document.getElementById('totalScore').textContent;
+    totalScore = parseInt(totalScore);
+    totalScore = totalScore + points;
+    document.getElementById('totalScore').textContent = totalScore;
 }
