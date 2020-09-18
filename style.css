@@ -13,6 +13,10 @@
     width: 20%;
 }
 
+#active{
+    background-color: blue;
+}
+
 .group0, .group1, .group2, .group3, .group4{
     text-align: center;
     background-color: aquamarine;

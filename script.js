@@ -115,12 +115,14 @@ function optionClicked(groupNum, optionChosen){
     console.log(groupNum+" "+optionChosen+" clicked");
 
     // remove any other selected buttons 'selection'
-    // find if any for that group have :active in classname and remove
-
-    // remove any other selected buttons scores
+    // find if any for that group have :active in classname and remove active 
+    // and any other selected buttons scores
+    
 
     // make that button 'selected'
-    // add :active or something to classname
+    // add active to id
+    var x = document.getElementsByClassName(groupNum+' value-btn btn '+optionChosen);
+    x.id = "active";
 
     // add to score
     var points = getOptionValue(optionChosen);
