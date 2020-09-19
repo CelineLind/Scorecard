@@ -2,7 +2,7 @@
 // five button options appear, clicking them adds to a visible score
 
 var score = 0;
-var numOfQuestions = 5;
+var numOfQuestions = 15;
 
 var prompts = [
     {
@@ -23,6 +23,46 @@ var prompts = [
     },
     {
         question: "five",
+        completion: false
+    },
+    {
+        question: "six",
+        completion: false
+    },
+    {
+        question: "seven",
+        completion: false
+    },
+    {
+        question: "eight",
+        completion: false
+    },
+    {
+        question: "nine",
+        completion: false
+    },
+    {
+        question: "ten",
+        completion: false
+    },
+    {
+        question: "eleven",
+        completion: false
+    },
+    {
+        question: "twelve",
+        completion: false
+    },
+    {
+        question: "thirteen",
+        completion: false
+    },
+    {
+        question: "fourteen",
+        completion: false
+    },
+    {
+        question: "fifteen",
         completion: false
     }
 ]
