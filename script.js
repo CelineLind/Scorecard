@@ -131,6 +131,19 @@ function createOptions(){
             document.getElementsByClassName('prompts')[0].appendChild(group);
 		}
     }
+    // submit button
+    var submitButton = document.createElement('button');
+    var submitText = document.createTextNode('See Results...');
+    submitButton.appendChild(submitText);
+    submitButton.className = 'submitBtn';
+    submitButton.onclick = (function() {
+        var sectionScore = document.getElementById('totalScore').textContent;
+        sectionScore = parseInt(sectionScore);
+        return function() {
+            showResults(sectionScore);
+        }
+    })();
+    document.getElementsByClassName('prompts')[0].appendChild(submitButton);
 }
 
 // populate the screen with questions and buttons
@@ -185,4 +198,9 @@ function optionClicked(groupNum, optionChosen){
     var points = getOptionValue(optionChosen);
     totalScore = totalScore + points;
     document.getElementById('totalScore').textContent = totalScore;
+}
+
+
+function showResults(section1){
+    console.log('show results here');
 }
