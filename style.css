@@ -11,6 +11,7 @@
 .prompts{
     background-color: rgb(232, 238, 242);
     text-align: center;
+    padding-top: 5px;
 }
 
 .btn-group0, .btn-group1, .btn-group2, .btn-group3, .btn-group4,
