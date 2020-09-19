@@ -72,7 +72,7 @@ function createOptions(){
             
             var button = document.createElement('button');
 
-            var buttonTitle = options[j].title.replace(/-|\s/g," ");
+            var buttonTitle = options[j].title.replace(/-|\s/g," "); // replace hyphen in strongly-(dis)agree with space
             var button_text = document.createTextNode(buttonTitle); // between <button></button>
             button.appendChild(button_text); // add between text to button
 
@@ -121,6 +121,11 @@ function optionClicked(groupNum, optionChosen){
 
     console.log(groupNum+" "+optionChosen+" clicked");
 
+    // 
+    var pointsToRemove = 0;
+    var totalScore = document.getElementById('totalScore').textContent;
+    totalScore = parseInt(totalScore);
+
     // remove any other selected buttons 'selection'
     // find if any for that group have :active in classname and remove active 
     // and any other selected buttons scores
@@ -129,18 +134,18 @@ function optionClicked(groupNum, optionChosen){
         console.log(statusCheck[0].id);
         if(statusCheck[0].id === 'active'){
             statusCheck[0].id = 'inactive';
+            // remove points
+            pointsToRemove = options[i].value;
+            totalScore = totalScore - pointsToRemove;
         }
     }
     
-
     // make that button 'selected'
     // add active to id
     document.getElementsByClassName(groupNum+' value-btn btn '+optionChosen)[0].id = 'active';
 
     // add to score
     var points = getOptionValue(optionChosen);
-    var totalScore = document.getElementById('totalScore').textContent;
-    totalScore = parseInt(totalScore);
     totalScore = totalScore + points;
     document.getElementById('totalScore').textContent = totalScore;
 }
