@@ -29,7 +29,7 @@ var prompts = [
 
 var options = [
     {
-        title: "strongly disagree",
+        title: "strongly-disagree",
         value: 1
     },
     {
@@ -45,7 +45,7 @@ var options = [
         value: 4
     },
     {
-        title: "strongly agree",
+        title: "strongly-agree",
         value: 5
     }
 ]
@@ -72,7 +72,8 @@ function createOptions(){
             
             var button = document.createElement('button');
 
-            var button_text = document.createTextNode(options[j].title); // between <button></button>
+            var buttonTitle = options[j].title.replace(/-|\s/g," ");
+            var button_text = document.createTextNode(buttonTitle); // between <button></button>
             button.appendChild(button_text); // add between text to button
 
             button.className = 'group' + i + ' value-btn btn ' + options[j].title; // class=""
@@ -120,35 +121,21 @@ function optionClicked(groupNum, optionChosen){
 
     console.log(groupNum+" "+optionChosen+" clicked");
 
-    var x = 1;
-    if(optionChosen == 'disagree'){
-        x = 1;
-    }
-    else{
-        x = 0;
-    }
-
     // remove any other selected buttons 'selection'
     // find if any for that group have :active in classname and remove active 
     // and any other selected buttons scores
     for(var i = 0; i < numOfQuestions; i++){
         var statusCheck = document.getElementsByClassName(groupNum+' value-btn btn '+options[i].title);
-        console.log(statusCheck[x].id);
-        if(statusCheck[x].id === 'active'){
-            statusCheck[x].id = 'inactive';
+        console.log(statusCheck[0].id);
+        if(statusCheck[0].id === 'active'){
+            statusCheck[0].id = 'inactive';
         }
     }
     
 
     // make that button 'selected'
     // add active to id
-    if(optionChosen == 'disagree'){
-        x = 1;
-    }
-    else{
-        x = 0;
-    }
-    document.getElementsByClassName(groupNum+' value-btn btn '+optionChosen)[x].id = 'active';
+    document.getElementsByClassName(groupNum+' value-btn btn '+optionChosen)[0].id = 'active';
 
     // add to score
     var points = getOptionValue(optionChosen);
