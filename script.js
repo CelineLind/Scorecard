@@ -1,6 +1,3 @@
-// populating the buttons and questions modified from https://codepen.io/danubevictoria/pen/WObGGQ
-// five button options appear, clicking them adds to a visible score
-
 var score = 0;
 var numOfQuestions = 15;
 
@@ -169,7 +166,7 @@ function optionClicked(groupNum, optionChosen){
     // remove any other selected buttons 'selection'
     // find if any for that group have :active in classname and remove active 
     // and any other selected buttons scores
-    for(var i = 0; i < numOfQuestions; i++){
+    for(var i = 0; i < 5; i++){
         var statusCheck = document.getElementsByClassName(groupNum+' value-btn btn '+options[i].title);
         console.log(statusCheck[0].id);
         if(statusCheck[0].id === 'active'){
